@@ -44,7 +44,6 @@ def train_step(params, opt_state, batch):
 train_ds = tfds.load('cifar10', split='train')
 train_ds = train_ds.batch(128).prefetch(1)
 
-print("开始训练...")
 for epoch in range(10):  
     losses = []
     for batch in tfds.as_numpy(train_ds):
@@ -54,4 +53,3 @@ for epoch in range(10):
     avg_loss = jnp.mean(jnp.array(losses))
     print(f'Epoch {epoch+1}, Loss: {avg_loss:.4f}')
 
-print("训练完成！")  
